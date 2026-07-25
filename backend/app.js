@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import authRoutes from './routes/authRoutes.js';
 
 const app = express();
 
@@ -10,4 +11,8 @@ app.get('/', (req, res) => {
   res.send('SwipeShop API Running');
 });
 
+// Auth Routes
+app.use('/api/auth', authRoutes);
+
 export default app;
+
