@@ -23,12 +23,11 @@ api.interceptors.request.use(
   }
 );
 
-// Response Interceptor: Handle global response errors (e.g., clearing stale token on 401)
+// Response Interceptor: Handle global 401 Unauthorized responses
 api.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response && error.response.status === 401) {
-      // Clear invalid or expired token
       localStorage.removeItem("token");
     }
     return Promise.reject(error);

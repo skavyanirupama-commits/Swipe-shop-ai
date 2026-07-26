@@ -45,7 +45,7 @@ export const Discover: React.FC = () => {
 
         {/* Main Swipe Deck Interface */}
         <div className="w-full flex justify-center">
-          <SwipeDeck />
+          <SwipeDeck selectedCategory={selectedCategory} />
         </div>
       </main>
 
