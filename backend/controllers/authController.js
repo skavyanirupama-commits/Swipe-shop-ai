@@ -122,4 +122,24 @@ export const loginUser = async (req, res) => {
   }
 };
 
+// @desc    Get current logged in user profile
+// @route   GET /api/auth/me
+// @access  Private
+export const getMe = async (req, res) => {
+  try {
+    return res.status(200).json({
+      success: true,
+      user: req.user,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: "Server error getting user profile",
+      error: error.message,
+    });
+  }
+};
+
+
+
 

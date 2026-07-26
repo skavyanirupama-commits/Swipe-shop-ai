@@ -5,14 +5,20 @@ import User from "../models/User.js";
 export const protect = async (req, res, next) => {
   let token;
 
-  // 1. Read Authorization header and check for Bearer format
-  if (
-    req.headers.authorization &&
-    req.headers.authorization.startsWith("Bearer")
-  ) {
+  const authHeader = req.headers.authorization;
+
+  // 1. Read Authorization header and check for Bearer format (case-insensitive)
+  if (authHeader && authHeader.toLowerCase().startsWith("bearer")) {
     try {
-      // 2. Extract token from "Bearer <token>"
-      token = req.headers.authorization.split(" ")[1];
+      // 2. Extract token cleanly handling single or multiple spaces (e.g. "Bearer   <token>")
+      token = authHeader.split(/\s+/)[1];
+
+      if (!token) {
+        return res.status(401).json({
+          success: false,
+          message: "Not authorized, token missing",
+        });
+      }
 
       // 3. Verify token with secret key
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
@@ -37,11 +43,14 @@ export const protect = async (req, res, next) => {
     }
   }
 
-  // 6. Return 401 if no token was found
-  if (!token) {
-    return res.status(401).json({
-      success: false,
-      message: "Not authorized, no token provided",
-    });
-  }
+  // 6. Return 401 if no valid Authorization header was found
+  return res.status(401).json({
+    success: false,
+    message: "Not authorized, no token provided",
+  });
 };
+
+
+
+
+
