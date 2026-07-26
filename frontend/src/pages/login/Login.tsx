@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Sparkles, Mail, Lock, ArrowRight, Loader2, AlertCircle } from "lucide-react";
-import { loginUser } from "../../services/authService.js";
+import { Mail, Lock, ArrowRight, Loader2, AlertCircle } from "lucide-react";
+import { loginUser } from "../../services/authService";
 import { useAuth } from "../../context/AuthContext.tsx";
+
 
 export const Login: React.FC = () => {
   const navigate = useNavigate();

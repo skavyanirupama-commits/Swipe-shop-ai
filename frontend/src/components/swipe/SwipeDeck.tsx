@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { RefreshCw, CheckCircle2, AlertTriangle, Loader2 } from "lucide-react";
-import { getProducts } from "../../services/productService.js";
+import { getProducts } from "../../services/productService";
+
 import { SwipeCard } from "./SwipeCard";
 import { Button } from "../ui/Button";
 import { Badge } from "../ui/Badge";

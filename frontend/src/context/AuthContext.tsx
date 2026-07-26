@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
-import { getCurrentUser, logoutUser } from "../services/authService.js";
+import { getCurrentUser, logoutUser } from "../services/authService";
+
 
 interface User {
   _id: string;

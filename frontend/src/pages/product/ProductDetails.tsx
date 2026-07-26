@@ -1,15 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
 import {
   ArrowLeft,
   Star,
   Sparkles,
   ShoppingBag,
-  ExternalLink,
-  ShieldCheck,
-  Truck,
-  RotateCcw,
   Loader2,
   AlertTriangle,
   Tag,
@@ -18,7 +13,8 @@ import Navbar from "../../components/layout/Navbar";
 import Footer from "../../components/layout/Footer";
 import { Badge } from "../../components/ui/Badge";
 import { Button } from "../../components/ui/Button";
-import { getProductById, getProducts } from "../../services/productService.js";
+import { getProductById, getProducts } from "../../services/productService";
+
 
 export const ProductDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();

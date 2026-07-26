@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Sparkles, User, Mail, Lock, ArrowRight, Loader2, AlertCircle } from "lucide-react";
-import { registerUser } from "../../services/authService.js";
+import { User, Mail, Lock, ArrowRight, Loader2, AlertCircle } from "lucide-react";
+import { registerUser } from "../../services/authService";
+
 
 export const Register: React.FC = () => {
   const navigate = useNavigate();
